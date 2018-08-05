@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.9"
+        android:background="#5fb0c9"
+        android:orientation="vertical"
+        android:gravity="left"
+
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Verification code"
+            android:textColor="#ffffff"
+            android:gravity="left"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:textStyle="bold"
+            android:padding="4dp"
+            android:layout_marginLeft="24dp"
+
+            />
+
+
+
+
+
+        <TextView
+            android:id="@+id/verify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter verification code sent to your mobile number"
+            android:textColor="#ffffff"
+            android:gravity="left"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="24dp"
+            android:padding="4dp"/>
+
+
+        <com.raycoarana.codeinputview.CodeInputView
+            android:id="@+id/otp_CodeInput"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:underline_color="#1976D2"
+            app:underline_selected_color="#90CAF9"
+            app:code_text_color="#F5F5F5"
+            app:error_color="#77ce9d"
+            app:input_type="numeric"
+            app:length_of_code="6"
+            app:animate_on_complete="false"
+
+            />
+
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#ffffff"
+        ></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="#ffffff"
+        >
+        <TextView
+            android:id="@+id/text2min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did not recieve a code yet?\n Please wait for 2 min"
+            android:gravity="center_horizontal"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/grey"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
