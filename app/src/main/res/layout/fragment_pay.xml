@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="#ffffff"
+    tools:context="com.ubschallenge.upay.HomeFrag.PayFrag">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            >
+
+            <EditText
+                android:id="@+id/namesignup"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/payfrag_enterdetails"
+                android:textColor="#607D8B"
+                android:textSize="18sp"
+
+                />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+
+                android:layout_alignEnd="@+id/namesignup"
+                android:layout_alignRight="@+id/namesignup"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_contact_phone_black_24dp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>

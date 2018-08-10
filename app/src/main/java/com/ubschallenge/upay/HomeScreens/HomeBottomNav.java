@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.ubschallenge.upay.HomeFrag.PayFrag;
 import com.ubschallenge.upay.R;
 
 public class HomeBottomNav extends AppCompatActivity {
@@ -43,11 +44,11 @@ public class HomeBottomNav extends AppCompatActivity {
 
                     Toast.makeText(HomeBottomNav.this,"Home clicked",Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.navigation_gifts:
+                case R.id.payfrag_pay:
                    /* toolbar.setTitle("My Gifts");*/
-                  /*  fragment=new Donate();
-                    loadFragment(fragment);*/
-                    Toast.makeText(HomeBottomNav.this,"Barcode clicked",Toast.LENGTH_SHORT).show();
+                    fragment=new PayFrag();
+                    loadFragment(fragment);
+                    Toast.makeText(HomeBottomNav.this,"Pay clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_cart:
                    /* toolbar.setTitle("Cart");*/

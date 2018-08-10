@@ -34,11 +34,13 @@
         <activity
             android:name=".Sign"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".HomeScreens.HomeBottomNav"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-
-        <activity android:name=".HomeScreens.NewOtp"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".HomeScreens.HomeBottomNav"
+             />
+        <activity
+            android:name=".HomeScreens.NewOtp"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".HomeScreens.Pay"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@ public class Signup extends AppCompatActivity {
         passwd = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.email);
         signUp = (Button) findViewById(R.id.signup1);
+        adhar= (EditText) findViewById(R.id.adhar);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +43,7 @@ public class Signup extends AppCompatActivity {
                     intent.putExtra("name", name.getText().toString());
                     intent.putExtra("passwd", passwd.getText().toString());
                     intent.putExtra("email", email.getText().toString());
+                    intent.putExtra("aadhar", adhar.getText().toString());
                     startActivity(intent);
 
 

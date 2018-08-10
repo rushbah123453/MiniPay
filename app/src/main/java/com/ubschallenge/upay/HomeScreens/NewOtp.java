@@ -24,7 +24,9 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHan
 import com.amazonaws.regions.Regions;
 import com.raycoarana.codeinputview.CodeInputView;
 import com.raycoarana.codeinputview.OnCodeCompleteListener;
+import com.ubschallenge.upay.BckgroundTask;
 import com.ubschallenge.upay.R;
+import com.ubschallenge.upay.Signup;
 
 import java.util.UUID;
 
@@ -47,7 +49,7 @@ public class NewOtp extends AppCompatActivity {
     private String username;
     private String password;
 
-    public String mobileno1;
+    public String mobileno1,aadhar,email,username1,pwd;
 
     public TextView textView;
 
@@ -76,6 +78,11 @@ String otp;
      textView=(TextView)findViewById(R.id.verify);
 
     mobileno1="+91"+ getIntent().getExtras().getString("mobileno");
+    aadhar=getIntent().getExtras().getString("aadhar");
+    email=getIntent().getExtras().getString("email");
+    username1=getIntent().getExtras().getString("name");
+    pwd=getIntent().getExtras().getString("name");
+
         Toast.makeText(getApplicationContext(),mobileno1,Toast.LENGTH_SHORT).show();
         final CodeInputView codeInputView=(CodeInputView)findViewById(R.id.otp_CodeInput);
 
@@ -171,6 +178,16 @@ String otp;
             Toast.makeText(getApplicationContext(),"OTP user successfull",Toast.LENGTH_SHORT).show();
           //  Intent intent=new Intent(getApplicationContext(),MyBloodGroup.class);
             //startActivity(intent);
+
+            Toast.makeText(getApplicationContext(),username1+email+pwd+mobileno1+aadhar,Toast.LENGTH_SHORT).show();
+               BckgroundTask bckgroundTask=new BckgroundTask(NewOtp.this);
+                bckgroundTask.execute("signup",username1,email,pwd,mobileno1,aadhar);
+
+
+
+
+
+
         }
 
         @Override
@@ -232,6 +249,7 @@ String otp;
             if (signUpConfirmationState) {
                 // User is already confirmed
                 Toast.makeText(getApplicationContext(),"signup success",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"user registered in db",Toast.LENGTH_SHORT).show();
                // Intent intent=new Intent(getApplicationContext(),MyBloodGroup.class);
              //   startActivity(intent);
             }
