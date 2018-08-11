@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -42,23 +41,23 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
     Response responseGlobal;
 
 
-    public BckgroundTask(Context ctx){
-        this.ctx=ctx;
+    public BckgroundTask(Context ctx) {
+        this.ctx = ctx;
     }
 
     @Override
     protected String doInBackground(String... voids) {
 
-        String reg_url="http://18.219.109.118:8080/performsignup";
-        String method=voids[0];
-            String name=voids[1];
-            String email=voids[2];
-            String passwd=voids[3];
-            String cotact=voids[4];
-        String aadhar=voids[5];
-        Response response=null;
+        String reg_url = "http://18.219.109.118:8080/performsignup";
+        String method = voids[0];
+        String name = voids[1];
+        String email = voids[2];
+        String passwd = voids[3];
+        String cotact = voids[4];
+        String aadhar = voids[5];
+        Response response = null;
 
-            int responseCode = 0;
+        int responseCode = 0;
         try {
 
             JSON = MediaType.parse("application/json; charset=utf-8");
@@ -74,25 +73,21 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
             jsonParam.put("dob", passwd);
 
 
+            if (method.equals("signup")) {
+                RequestBody body = RequestBody.create(JSON, jsonParam.toString());
+                Request request = new Request.Builder()
+                        .url(reg_url)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+                System.out.print("Response:" + response.message().toString());
+            } else {
+                System.out.print("in  else block");
+            }
 
 
-
-             if(method.equals("signup")){
-                 RequestBody body = RequestBody.create(JSON, jsonParam.toString());
-                 Request request = new Request.Builder()
-                         .url(reg_url)
-                         .post(body)
-                         .build();
-
-                 response = client.newCall(request).execute();
-                 System.out.print("Response:"+response.message().toString());
-             }
-             else{
-                 System.out.print("in  else block");
-             }
-
-
-           // Toast.makeText(ctx,"Response " + response.toString(),Toast.LENGTH_SHORT).show();
+            // Toast.makeText(ctx,"Response " + response.toString(),Toast.LENGTH_SHORT).show();
 
          /*   URL url = new URL(reg_url);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -127,11 +122,10 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
             /*Request request*/
 
 
-
 //            Log.i("STATUS", String.valueOf(conn.getResponseCode()));
 //            Log.i("MSG" , "abcd");
 
-           // conn.disconnect();
+            // conn.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
 //            Toast.makeText(ctx,"exception"+e.toString(),Toast.LENGTH_SHORT).show();
@@ -141,13 +135,12 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
 
         }
 
-        responseGlobal=response;
+        responseGlobal = response;
 
-      //  Toast.makeText(ctx,"result"+client.newCall(request).execute();,Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(ctx,"result"+client.newCall(request).execute();,Toast.LENGTH_SHORT).show();
         try {
-            return "Response"+response.body().string();//name,aadhaar,email,phone,password,dob
-        }
-        catch(IOException ioe) {
+            return "Response" + response.body().string();//name,aadhaar,email,phone,password,dob
+        } catch (IOException ioe) {
             return "" + ioe.getStackTrace();
         }
 
@@ -166,10 +159,10 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         try {
-            Toast.makeText(ctx,"result"+responseGlobal.body().string(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(ctx, "result" + responseGlobal.body().string(), Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("OnPostExecute error log in app","exception in onpostexecute");
+            Log.e("OnPostExecute error log in app", "exception in onpostexecute");
         }
 
             /*    Intent intentnew=new Intent(ctx,MainActivity.class);
