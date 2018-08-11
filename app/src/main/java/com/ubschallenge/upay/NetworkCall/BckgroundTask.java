@@ -1,5 +1,6 @@
 package com.ubschallenge.upay.NetworkCall;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -38,6 +39,7 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
 
     Context ctx;
     static MediaType JSON = null;
+    Response responseGlobal;
 
 
     public BckgroundTask(Context ctx){
@@ -75,14 +77,19 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
 
 
 
+             if(method.equals("signup")){
+                 Request request = new Request.Builder()
+                         .url(reg_url)
+                         .post(body)
+                         .build();
 
-            Request request = new Request.Builder()
-                    .url(reg_url)
-                    .post(body)
-                    .build();
+                 response = client.newCall(request).execute();
+                 System.out.print("Response:"+response.message().toString());
+             }
+             else{
+                 System.out.print("in  else block");
+             }
 
-             response = client.newCall(request).execute();
-            System.out.print("abc:"+response.message().toString());
 
            // Toast.makeText(ctx,"Response " + response.toString(),Toast.LENGTH_SHORT).show();
 
@@ -133,15 +140,16 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
 
         }
 
-
+        responseGlobal=response;
 
       //  Toast.makeText(ctx,"result"+client.newCall(request).execute();,Toast.LENGTH_SHORT).show();
         try {
-            return response.body().string();//name,aadhaar,email,phone,password,dob
+            return "Response"+response.body().string();//name,aadhaar,email,phone,password,dob
         }
         catch(IOException ioe) {
             return "" + ioe.getStackTrace();
         }
+
     }
 
     public BckgroundTask() {
@@ -153,9 +161,15 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
         super.onPreExecute();
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(ctx,"result"+result,Toast.LENGTH_SHORT).show();
+        try {
+            Toast.makeText(ctx,"result"+responseGlobal.body().string(),Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("OnPostExecute error log in app","exception in onpostexecute");
+        }
 
             /*    Intent intentnew=new Intent(ctx,MainActivity.class);
         ctx.startActivity(intentnew);*/
