@@ -48,7 +48,7 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... voids) {
 
-        String reg_url = "http://18.219.109.118:8080/performsignup";
+        String reg_url = "http://18.219.106.142:8080/performsignup";
         String method = voids[0];
         String name = voids[1];
         String email = voids[2];
