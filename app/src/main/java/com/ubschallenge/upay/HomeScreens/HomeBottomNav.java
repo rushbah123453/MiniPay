@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeFrag.AddMoneyFrag;
 import com.ubschallenge.upay.HomeFrag.PayFrag;
+import com.ubschallenge.upay.HomeFrag.ProfileFrag;
 import com.ubschallenge.upay.R;
 
 public class HomeBottomNav extends AppCompatActivity {
@@ -57,10 +58,10 @@ public class HomeBottomNav extends AppCompatActivity {
                     loadFragment(fragment);
                     Toast.makeText(HomeBottomNav.this,"Add Money clicked",Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.navigation_profile:
+                case R.id.profilefrag:
                     /*toolbar.setTitle("Profile");*/
-                  /*  fragment=new AboutUs();
-                    loadFragment(fragment);*/
+                    fragment=new ProfileFrag();
+                    loadFragment(fragment);
                     Toast.makeText(HomeBottomNav.this,"Profile clicked",Toast.LENGTH_SHORT).show();
                     return true;
             }

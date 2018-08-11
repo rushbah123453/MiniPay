@@ -17,8 +17,8 @@
         android:title="Add Money" />
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/info" />
+        android:id="@+id/profilefrag"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Profile" />
 
 </menu>
