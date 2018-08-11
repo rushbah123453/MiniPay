@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ubschallenge.upay.HomeScreens.HomeBottomNav;
+import com.ubschallenge.upay.SignUp.Signup;
 
 public class MainActivity extends AppCompatActivity {
 

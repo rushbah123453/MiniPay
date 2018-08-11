@@ -26,13 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Signup"
+            android:name=".SignUp.Signup"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Example"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".Sign"
+            android:name=".SignIn.Sign"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".HomeScreens.HomeBottomNav"

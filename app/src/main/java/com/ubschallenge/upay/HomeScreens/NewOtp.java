@@ -2,7 +2,6 @@ package com.ubschallenge.upay.HomeScreens;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -24,9 +23,8 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHan
 import com.amazonaws.regions.Regions;
 import com.raycoarana.codeinputview.CodeInputView;
 import com.raycoarana.codeinputview.OnCodeCompleteListener;
-import com.ubschallenge.upay.BckgroundTask;
+import com.ubschallenge.upay.NetworkCall.BckgroundTask;
 import com.ubschallenge.upay.R;
-import com.ubschallenge.upay.Signup;
 
 import java.util.UUID;
 
