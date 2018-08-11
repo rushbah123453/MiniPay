@@ -1,4 +1,4 @@
-package com.ubschallenge.upay.HomeScreens;
+package com.ubschallenge.upay.SignUp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -28,7 +28,7 @@ import com.ubschallenge.upay.R;
 
 import java.util.UUID;
 
-public class NewOtp extends AppCompatActivity {
+public class Otp extends AppCompatActivity {
 
 
     private final String TAG="MainActivity";
@@ -91,7 +91,7 @@ String otp;
 
                  otp=codeInputView.getCode();
 
-                Toast.makeText(NewOtp.this,"OTP:"+otp,Toast.LENGTH_SHORT).show();
+                Toast.makeText(Otp.this,"OTP:"+otp,Toast.LENGTH_SHORT).show();
 
                 sendConfCode();
 
@@ -178,7 +178,7 @@ String otp;
             //startActivity(intent);
 
             Toast.makeText(getApplicationContext(),username1+email+pwd+mobileno1+aadhar,Toast.LENGTH_SHORT).show();
-               BckgroundTask bckgroundTask=new BckgroundTask(NewOtp.this);
+               BckgroundTask bckgroundTask=new BckgroundTask(Otp.this);
                 bckgroundTask.execute("signup",username1,email,pwd,mobileno1,aadhar);
 
 

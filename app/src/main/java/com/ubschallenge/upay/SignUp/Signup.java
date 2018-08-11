@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.ubschallenge.upay.HomeScreens.NewOtp;
 import com.ubschallenge.upay.R;
 
 
@@ -38,7 +37,7 @@ public class Signup extends AppCompatActivity {
                     Toast.makeText(Signup.this, "Please enter mobile number", Toast.LENGTH_SHORT).show();
                     mobile.setError("Please enter mobile number");
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), NewOtp.class);
+                    Intent intent = new Intent(getApplicationContext(), Otp.class);
                     intent.putExtra("mobileno", mobile.getText().toString());
                     intent.putExtra("name", name.getText().toString());
                     intent.putExtra("passwd", passwd.getText().toString());
