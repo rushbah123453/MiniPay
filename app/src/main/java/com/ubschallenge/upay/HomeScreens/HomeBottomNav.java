@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.ubschallenge.upay.HomeFrag.AddMoneyFrag;
 import com.ubschallenge.upay.HomeFrag.PayFrag;
 import com.ubschallenge.upay.R;
 
@@ -50,11 +51,11 @@ public class HomeBottomNav extends AppCompatActivity {
                     loadFragment(fragment);
                     Toast.makeText(HomeBottomNav.this,"Pay clicked",Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.navigation_cart:
+                case R.id.addmoneyfrag_add:
                    /* toolbar.setTitle("Cart");*/
-                    /*fragment=new EligibilityCriteria();
-                    loadFragment(fragment);*/
-                    Toast.makeText(HomeBottomNav.this,"Passbook clicked",Toast.LENGTH_SHORT).show();
+                    fragment=new AddMoneyFrag();
+                    loadFragment(fragment);
+                    Toast.makeText(HomeBottomNav.this,"Add Money clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_profile:
                     /*toolbar.setTitle("Profile");*/

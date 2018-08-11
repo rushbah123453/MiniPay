@@ -12,8 +12,8 @@
         android:title="Pay" />
 
     <item
-        android:id="@+id/navigation_cart"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/addmoneyfrag_add"
+        android:icon="@drawable/ic_add_alert_black_24dp"
         android:title="Add Money" />
 
     <item

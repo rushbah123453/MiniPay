@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="@string/payfrag_enterdetails"
+                android:hint="@string/payFrag_enterdetails"
                 android:textColor="#607D8B"
                 android:textSize="18sp"
 
