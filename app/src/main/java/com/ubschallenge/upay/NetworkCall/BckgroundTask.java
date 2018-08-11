@@ -73,11 +73,12 @@ public class BckgroundTask extends AsyncTask<String, Void, String> {
             jsonParam.put("password", passwd);
             jsonParam.put("dob", passwd);
 
-            RequestBody body = RequestBody.create(JSON, jsonParam.toString());
+
 
 
 
              if(method.equals("signup")){
+                 RequestBody body = RequestBody.create(JSON, jsonParam.toString());
                  Request request = new Request.Builder()
                          .url(reg_url)
                          .post(body)
