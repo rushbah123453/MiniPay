@@ -5,4 +5,7 @@ package com.ubschallenge.upay.NetworkCall;
  */
 
 public interface AsyncResponse {
+
+    void AsyncFinnished(String output);
+
 }

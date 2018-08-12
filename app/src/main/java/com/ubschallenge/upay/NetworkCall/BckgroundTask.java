@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeScreens.HomeBottomNav;
 import com.ubschallenge.upay.MainActivity;
+import com.ubschallenge.upay.SignUp.Otp;
 import com.ubschallenge.upay.SignUp.Signup;
 
 import org.json.JSONException;
@@ -48,7 +49,10 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
     Context ctx;
     static MediaType JSON = null;
     Response responseGlobal;
+    String methodType=null;
     ResponseBody responseBody;
+    String finalResult;
+    public AsyncResponse output=null;
 
     public BckgroundTask(Context ctx) {
         this.ctx = ctx;
@@ -59,6 +63,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
         String reg_url = "http://18.219.106.142:8080/performsignup";
         String login_url="http://18.219.106.142:8080/performlogin";
+        String validSignup="http://18.219.106.142:8080/validatesignup";
 
         String method = voids[0];
 
@@ -75,15 +80,12 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
 
             if (method.equals("signup")) {
-
-
-
                 String name = voids[1];
                 String email = voids[2];
                 String passwd = voids[3];
                 String cotact = voids[4];
                 String aadhar = voids[5];
-
+                methodType="signup";
                 JSONObject jsonParam = new JSONObject();
                 jsonParam.put("name", name);
                 jsonParam.put("aadhaar", aadhar);
@@ -106,7 +108,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
                 String phone = voids[1];
                 String password = voids[2];
-
+                methodType="signin";
                 JSONObject jsonParam1 = new JSONObject();
                 jsonParam1.put("phone", phone);
                 jsonParam1.put("password", password);
@@ -122,6 +124,25 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
 
             }
+            else if(method.equals("validateAlreadyExistingUser")){
+
+                String phone = voids[1];
+                methodType="validateAlreadyExistingUser";
+                JSONObject jsonParam2 = new JSONObject();
+                jsonParam2.put("phone", phone);
+
+                RequestBody body = RequestBody.create(JSON, jsonParam2.toString());
+                Request request = new Request.Builder()
+                        .url(validSignup)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+            }
+
+
+
 
 
             // Toast.makeText(ctx,"Response " + response.toString(),Toast.LENGTH_SHORT).show();
@@ -133,6 +154,9 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             conn.setRequestProperty("Accept","application/json");
             conn.setDoOutput(true);
             conn.setDoInput(true);
+
+
+
 
             JSONObject jsonParam = new JSONObject();
             jsonParam.put("name", name);
@@ -251,13 +275,15 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
     protected void onPostExecute(String result) {
 
 
+
+        finalResult=result;
             /*    Intent intentnew=new Intent(ctx,MainActivity.class);
         ctx.startActivity(intentnew);*/
 
 
             Toast.makeText(ctx,"this is response "+result,Toast.LENGTH_SHORT).show();
 
-            if(result.equals("1"))
+            if(result.equals("1") && methodType.equals("signin"))
             {
                 Toast.makeText(ctx,"Succesfull login  "+result,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(ctx,HomeBottomNav.class);
@@ -288,7 +314,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 alBuilder.show();
 
             }
-            else if (result.equals("1062")){
+            else if (result.equals("1062") && methodType.equals("signup")){
                 AlertDialog.Builder alBuilder=new AlertDialog.Builder(ctx);
 
                 alBuilder.setTitle("User Already Exist!").setMessage("Please Add  different number to same email id");
@@ -307,6 +333,22 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             }
 
 
+            else if(result.equals("false") && methodType.equals("validateAlreadyExistingUser")){
+
+                Toast.makeText(ctx,"User Already Existing",Toast.LENGTH_SHORT).show();
+                output.AsyncFinnished(result);
+            }
+
+            else if(result.equals("true") && methodType.equals("validateAlreadyExistingUser")){
+                Toast.makeText(ctx,"User Not Existing",Toast.LENGTH_SHORT).show();
+
+                output.AsyncFinnished(result);
+
+
+
+            }
+
+
 
     }
 
@@ -314,6 +356,9 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
+
+
+
 
 
 }
