@@ -37,7 +37,6 @@
         <activity
             android:name=".SignUp.Otp"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".HomeScreens.Pay"></activity>
     </application>
 
 </manifest>
