@@ -44,6 +44,9 @@ public class HomeBottomNav extends AppCompatActivity {
                     loadFragment(fragment);*/
 
 
+
+
+
                     Toast.makeText(HomeBottomNav.this,"Home clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.payfrag_pay:
@@ -68,6 +71,8 @@ public class HomeBottomNav extends AppCompatActivity {
             return false;
         }
     };
+
+
 
     private void loadFragment(Fragment fragment) {
         // load fragment
