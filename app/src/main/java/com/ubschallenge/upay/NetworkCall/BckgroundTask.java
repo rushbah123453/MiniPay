@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeScreens.HomeBottomNav;
 import com.ubschallenge.upay.MainActivity;
+import com.ubschallenge.upay.SignIn.Sign;
 import com.ubschallenge.upay.SignUp.Otp;
 import com.ubschallenge.upay.SignUp.Signup;
 
@@ -352,6 +353,15 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 });
 
                 alBuilder.show();
+            }
+
+            else if (result.equals("1") && methodType.equals("signup")) {
+
+                Toast.makeText(ctx,"Signed up",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(ctx, MainActivity.class);
+                ctx.startActivity(intent);
+
+
             }
 
 
