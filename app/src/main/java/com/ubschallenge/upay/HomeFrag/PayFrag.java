@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ubschallenge.upay.NetworkCall.BckgroundTask;
 import com.ubschallenge.upay.R;
@@ -19,12 +20,12 @@ import com.ubschallenge.upay.SignUp.Signup;
 public class PayFrag extends Fragment {
 
 
-    EditText payRecipient;
+    EditText payRecipient,addAmount;
     Button payNow;
     View view;
-    String toPayNumber;
-    String hardCodedAmount="555";
-    String hardCodedFromPhoneNumber="+919552388824";
+
+    String hardCodedAmount="5";
+    String hardCodedFromPhoneNumber="1234";
 
     public PayFrag() {
         // Required empty public constructor
@@ -39,10 +40,11 @@ public class PayFrag extends Fragment {
          view=inflater.inflate(R.layout.fragment_pay, container, false);
 
 
-        payRecipient=(EditText)view.findViewById(R.id.payToMobile);
+        payRecipient=(EditText)view.findViewById(R.id.payToMobileNumber);
+        addAmount=(EditText)view.findViewById(R.id.amount);
         payNow=(Button)view.findViewById(R.id.payMoney);
 
-        toPayNumber=payRecipient.getText().toString();
+
 
 
 
@@ -54,7 +56,7 @@ public class PayFrag extends Fragment {
 
                 BckgroundTask bckgroundTask=new BckgroundTask(getContext());
                 // bckgroundTask.output=Signup.this;
-                bckgroundTask.execute("payMoney",hardCodedFromPhoneNumber,toPayNumber,hardCodedAmount);
+                bckgroundTask.execute("payMoney",hardCodedFromPhoneNumber,payRecipient.getText().toString(),addAmount.getText().toString());
 
             }
         });

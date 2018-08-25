@@ -371,6 +371,23 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             }
 
 
+            else if (methodType.equals("payMoney") && result.equals("1452"))
+            {
+                Toast.makeText(ctx,"Reciepient User Not Existing",Toast.LENGTH_SHORT).show();
+            }
+
+            else if (methodType.equals("payMoney") && result.equals("1644"))
+            {
+                Toast.makeText(ctx,"Insufficient balance",Toast.LENGTH_SHORT).show();
+            }
+
+
+            else if (methodType.equals("payMoney") && result.equals("1"))
+            {
+                Toast.makeText(ctx,"Added Money",Toast.LENGTH_SHORT).show();
+            }
+
+
 
     }
 
