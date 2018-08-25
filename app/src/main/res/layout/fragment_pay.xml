@@ -15,7 +15,7 @@
             >
 
             <EditText
-                android:id="@+id/namesignup"
+                android:id="@+id/payToMobile"
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,13 +30,27 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
 
-                android:layout_alignEnd="@+id/namesignup"
-                android:layout_alignRight="@+id/namesignup"
+                android:layout_alignEnd="@+id/payToMobile"
+                android:layout_alignRight="@+id/payToMobile"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="12dp"
                 android:src="@drawable/ic_contact_phone_black_24dp" />
         </RelativeLayout>
 
+
+    <Button
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/payMoney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple"
+        android:text="@string/addMoneyFrag_proceed"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+
+        android:padding="1dp"/>
 
     </LinearLayout>

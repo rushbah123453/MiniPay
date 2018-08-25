@@ -64,7 +64,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String reg_url = "http://18.219.106.142:8080/performsignup";
         String login_url="http://18.219.106.142:8080/performlogin";
         String validSignup="http://18.219.106.142:8080/validatesignup";
-
+        String pay_url="http://18.219.106.142:8080/transfer";
         String method = voids[0];
 
         Response response = null;
@@ -140,7 +140,29 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 response = client.newCall(request).execute();
 
             }
+           else if(method.equals("payMoney")){
 
+                String fromMobile = voids[1];
+                String toMobile= voids[2];
+                String payAmount = voids[3];
+
+                methodType="payMoney";
+
+                JSONObject jsonParam3 = new JSONObject();
+                jsonParam3.put("fromphone", fromMobile);
+                jsonParam3.put("tophone", toMobile);
+                jsonParam3.put("amount", payAmount);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam3.toString());
+                Request request = new Request.Builder()
+                        .url(pay_url)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+            }
 
 
 
