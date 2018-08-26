@@ -66,6 +66,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String login_url="http://18.219.106.142:8080/performlogin";
         String validSignup="http://18.219.106.142:8080/validatesignup";
         String pay_url="http://18.219.106.142:8080/transfer";
+        String getbalance="http://18.219.106.142:8080/getbalance";
         String method = voids[0];
 
         Response response = null;
@@ -158,6 +159,26 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 RequestBody body = RequestBody.create(JSON, jsonParam3.toString());
                 Request request = new Request.Builder()
                         .url(pay_url)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+            }
+            else if(method.equals("getBalance")){
+
+
+                String fromMobile = voids[1];
+                methodType="getBalance";
+
+
+                JSONObject jsonParam4 = new JSONObject();
+                jsonParam4.put("phone", fromMobile);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam4.toString());
+                Request request = new Request.Builder()
+                        .url(getbalance)
                         .post(body)
                         .build();
 
@@ -395,6 +416,15 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             else if (methodType.equals("payMoney") && result.equals("1"))
             {
                 Toast.makeText(ctx,"Added Money",Toast.LENGTH_SHORT).show();
+            }
+            else if(methodType.equals("getBalance") && result.equals("-1")){
+
+                Toast.makeText(ctx,"error occured",Toast.LENGTH_SHORT).show();
+            }
+
+            else if(methodType.equals("getBalance")){
+
+                output.AsyncFinnished(result);
             }
 
 
