@@ -1,6 +1,8 @@
 package com.ubschallenge.upay;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         password=(EditText)findViewById(R.id.signinPassword);
 
 
-
+        final SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor=sharedPreferences.edit();
 
 
 
@@ -43,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                editor.putString("sharedPhoneno",phoneno.getText().toString());
+             //   editor.putString("phone",password.getText().toString());
+                editor.commit();
 
                 BckgroundTask bckgroundTask1=new BckgroundTask(MainActivity.this);
                 bckgroundTask1.execute("signin",phoneno.getText().toString(),password.getText().toString());

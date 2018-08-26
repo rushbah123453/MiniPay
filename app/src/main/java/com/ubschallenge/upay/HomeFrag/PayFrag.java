@@ -1,6 +1,8 @@
 package com.ubschallenge.upay.HomeFrag;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -44,6 +46,10 @@ public class PayFrag extends Fragment {
         addAmount=(EditText)view.findViewById(R.id.amount);
         payNow=(Button)view.findViewById(R.id.payMoney);
 
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+
+
+        final String phonenumber=sharedPreferences.getString("sharedPhoneno", "default value");
 
 
 
@@ -56,7 +62,7 @@ public class PayFrag extends Fragment {
 
                 BckgroundTask bckgroundTask=new BckgroundTask(getContext());
                 // bckgroundTask.output=Signup.this;
-                bckgroundTask.execute("payMoney",hardCodedFromPhoneNumber,payRecipient.getText().toString(),addAmount.getText().toString());
+                bckgroundTask.execute("payMoney",phonenumber,payRecipient.getText().toString(),addAmount.getText().toString());
 
             }
         });
