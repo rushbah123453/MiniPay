@@ -11,4 +11,9 @@
     <string name="addMoneyFrag_promocode">"Have a Promocode?"</string>
     <string name="addMoneyFrag_proceed">"Proceed to Add Money"</string>
     <string name="payMoneyFrag_proceed">"Proceed to Pay Money"</string>
+
+
+    <string name="Rs">\u20B9</string>
+
+
 </resources>

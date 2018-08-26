@@ -33,6 +33,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".HomeScreens.HomeBottomNav"
+
              />
         <activity
             android:name=".SignUp.Otp"

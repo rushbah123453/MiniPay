@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeFrag.AddMoneyFrag;
+import com.ubschallenge.upay.HomeFrag.HomeFrag;
 import com.ubschallenge.upay.HomeFrag.PayFrag;
 import com.ubschallenge.upay.HomeFrag.ProfileFrag;
 import com.ubschallenge.upay.R;
@@ -38,12 +39,13 @@ public class HomeBottomNav extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
             switch (item.getItemId()) {
-                case R.id.navigation_shop:
+                case R.id.homeFrag:
                    /* toolbar.setTitle("Shop");*/
                     /*fragment=new Home();
                     loadFragment(fragment);*/
 
-
+                    fragment=new HomeFrag();
+                    loadFragment(fragment);
 
 
 
