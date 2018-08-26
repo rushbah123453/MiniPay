@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreens.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,15 +29,16 @@
             android:name=".SignUp.Signup"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".SignIn.Sign"
+            android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".HomeScreens.HomeBottomNav"
-
-             />
+            android:name=".SignIn.Sign"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".HomeScreens.HomeBottomNav" />
         <activity
             android:name=".SignUp.Otp"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
     </application>
 
 </manifest>
