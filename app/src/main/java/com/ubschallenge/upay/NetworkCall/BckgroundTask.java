@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeScreens.HomeBottomNav;
 import com.ubschallenge.upay.MainActivity;
+import com.ubschallenge.upay.SignIn.Sign;
 import com.ubschallenge.upay.SignUp.Otp;
 import com.ubschallenge.upay.SignUp.Signup;
 
@@ -66,7 +68,8 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String validSignup="http://18.219.106.142:8080/validatesignup";
         String getPassbook = "http://18.219.106.142:8080/getpassbook";
         String addmoney = "http://18.219.106.142:8080/addmoney";
-
+        String pay_url="http://18.219.106.142:8080/transfer";
+        String getbalance="http://18.219.106.142:8080/getbalance";
         String method = voids[0];
 
         Response response = null;
@@ -142,6 +145,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 response = client.newCall(request).execute();
 
             }
+
             else if(method.equals("getpassbook"))
             {
                 System.out.print("In get Passbook block");
@@ -174,7 +178,49 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 response = client.newCall(request).execute();
 //                System.out.print("Response:" + response.body());
             }
+           else if(method.equals("payMoney")){
 
+                String fromMobile = voids[1];
+                String toMobile= voids[2];
+                String payAmount = voids[3];
+
+                methodType="payMoney";
+
+                JSONObject jsonParam3 = new JSONObject();
+                jsonParam3.put("fromphone", fromMobile);
+                jsonParam3.put("tophone", toMobile);
+                jsonParam3.put("amount", payAmount);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam3.toString());
+                Request request = new Request.Builder()
+                        .url(pay_url)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+            }
+            else if(method.equals("getBalance")){
+
+
+                String fromMobile = voids[1];
+                methodType="getBalance";
+
+
+                JSONObject jsonParam4 = new JSONObject();
+                jsonParam4.put("phone", fromMobile);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam4.toString());
+                Request request = new Request.Builder()
+                        .url(getbalance)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+            }
 
 
 
@@ -297,7 +343,15 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             Toast.makeText(ctx,"this is response "+result,Toast.LENGTH_SHORT).show();
 
             if(result.equals("1") && methodType.equals("signin"))
+
+
             {
+
+                final SharedPreferences sharedPreferences=ctx.getSharedPreferences("pref", Context.MODE_PRIVATE);
+                final SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("loginStatus","true");  // setting login to true -> for auto login
+                //   editor.putString("phone",password.getText().toString());
+                editor.commit();
                 Toast.makeText(ctx,"Succesfull login  "+result,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(ctx,HomeBottomNav.class);
                 ctx.startActivity(intent);
@@ -345,6 +399,15 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 alBuilder.show();
             }
 
+            else if (result.equals("1") && methodType.equals("signup")) {
+
+                Toast.makeText(ctx,"Signed up",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(ctx, MainActivity.class);
+                ctx.startActivity(intent);
+
+
+            }
+
 
             else if(result.equals("false") && methodType.equals("validateAlreadyExistingUser")){
 
@@ -367,6 +430,32 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             else if(methodType.equals("addmoney"))
             {
                 Toast.makeText(ctx,"Money Added",Toast.LENGTH_SHORT).show();
+                output.AsyncFinnished(result);
+            }
+
+
+            else if (methodType.equals("payMoney") && result.equals("1452"))
+            {
+                Toast.makeText(ctx,"Reciepient User Not Existing",Toast.LENGTH_SHORT).show();
+            }
+
+            else if (methodType.equals("payMoney") && result.equals("1644"))
+            {
+                Toast.makeText(ctx,"Insufficient balance",Toast.LENGTH_SHORT).show();
+            }
+
+
+            else if (methodType.equals("payMoney") && result.equals("1"))
+            {
+                Toast.makeText(ctx,"Added Money",Toast.LENGTH_SHORT).show();
+            }
+            else if(methodType.equals("getBalance") && result.equals("-1")){
+
+                Toast.makeText(ctx,"error occured",Toast.LENGTH_SHORT).show();
+            }
+
+            else if(methodType.equals("getBalance")){
+
                 output.AsyncFinnished(result);
             }
 

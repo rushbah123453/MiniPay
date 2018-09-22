@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ubschallenge.upay.HomeFrag.AddMoneyFrag;
+import com.ubschallenge.upay.HomeFrag.HomeFrag;
 import com.ubschallenge.upay.HomeFrag.PayFrag;
 import com.ubschallenge.upay.HomeFrag.ProfileFrag;
 import com.ubschallenge.upay.R;
@@ -25,7 +26,7 @@ public class HomeBottomNav extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+        loadFragment(new HomeFrag());
     }
 
 
@@ -38,10 +39,14 @@ public class HomeBottomNav extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
             switch (item.getItemId()) {
-                case R.id.navigation_shop:
+                case R.id.homeFrag:
                    /* toolbar.setTitle("Shop");*/
                     /*fragment=new Home();
                     loadFragment(fragment);*/
+
+                    fragment=new HomeFrag();
+                    loadFragment(fragment);
+
 
 
                     Toast.makeText(HomeBottomNav.this,"Home clicked",Toast.LENGTH_SHORT).show();
@@ -68,6 +73,8 @@ public class HomeBottomNav extends AppCompatActivity {
             return false;
         }
     };
+
+
 
     private void loadFragment(Fragment fragment) {
         // load fragment

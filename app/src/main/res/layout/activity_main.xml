@@ -6,6 +6,24 @@
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
+  <!--  <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/splashicon"
+        />-->
+    <!--<LinearLayout
+        android:id="@+id/linearuserpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        >-->
+
     <TextView
         android:id="@+id/login_title"
         android:layout_width="fill_parent"
@@ -16,7 +34,9 @@
         android:text="uPay"
         android:textColor="#fff"
         android:textSize="42sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+
+        />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -145,6 +165,7 @@
 
         </LinearLayout>
 
+
     </RelativeLayout>
 
     <ImageButton
@@ -157,4 +178,6 @@
         android:background="@drawable/user_profile_image_background"
         android:elevation="4dp"
         android:src="@drawable/profile_icon" />
+
+
 </RelativeLayout>

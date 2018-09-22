@@ -194,13 +194,14 @@
                 android:tint="@color/skyblue"
                 android:src="@drawable/adhar"/>
             <TextView
+                android:id="@+id/logout"
                 android:textStyle="bold"
 
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="Show all Offers"/>
+                android:text="Logout"/>
         </LinearLayout>
     </LinearLayout>
 
