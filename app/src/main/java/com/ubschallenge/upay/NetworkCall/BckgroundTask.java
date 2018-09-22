@@ -66,6 +66,8 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String reg_url = "http://18.219.106.142:8080/performsignup";
         String login_url="http://18.219.106.142:8080/performlogin";
         String validSignup="http://18.219.106.142:8080/validatesignup";
+        String getPassbook = "http://18.219.106.142:8080/getpassbook";
+        String addmoney = "http://18.219.106.142:8080/addmoney";
         String pay_url="http://18.219.106.142:8080/transfer";
         String getbalance="http://18.219.106.142:8080/getbalance";
         String method = voids[0];
@@ -142,6 +144,39 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
                 response = client.newCall(request).execute();
 
+            }
+
+            else if(method.equals("getpassbook"))
+            {
+                System.out.print("In get Passbook block");
+                String phone = voids[1];
+                methodType="getpassbook";
+                JSONObject jsonParam1 = new JSONObject();
+                jsonParam1.put("phone", phone);
+                RequestBody body = RequestBody.create(JSON, jsonParam1.toString());
+                Request request = new Request.Builder()
+                        .url(getPassbook)
+                        .post(body)
+                        .build();
+                response = client.newCall(request).execute();
+//                System.out.print("Response:" + response.body());
+            }
+            else if(method.equals("addmoney"))
+            {
+                System.out.print("In Add Money block");
+                String phone = voids[1];
+                String amt = voids[2];
+                methodType="addmoney";
+                JSONObject jsonParam1 = new JSONObject();
+                jsonParam1.put("tophone", phone);
+                jsonParam1.put("amount", amt);
+                RequestBody body = RequestBody.create(JSON, jsonParam1.toString());
+                Request request = new Request.Builder()
+                        .url(addmoney)
+                        .post(body)
+                        .build();
+                response = client.newCall(request).execute();
+//                System.out.print("Response:" + response.body());
             }
            else if(method.equals("payMoney")){
 
@@ -269,29 +304,8 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
               content="Server_error";
           }
 
-
-
-
-
-
-
-
-
-
-
             /*  ResponseBody responseBodyCopy = response.peekBody(Long.MAX_VALUE);
             String content= responseBodyCopy.string();*/
-
-
-
-
-
-
-
-
-
-
-
 
 
         return content;
@@ -403,11 +417,20 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
             else if(result.equals("true") && methodType.equals("validateAlreadyExistingUser")){
                 Toast.makeText(ctx,"User Not Existing",Toast.LENGTH_SHORT).show();
-
                 output.AsyncFinnished(result);
 
 
 
+            }
+            else if(methodType.equals("getpassbook"))
+            {
+                Toast.makeText(ctx,"Passbook details fetched",Toast.LENGTH_SHORT).show();
+                output.AsyncFinnished(result);
+            }
+            else if(methodType.equals("addmoney"))
+            {
+                Toast.makeText(ctx,"Money Added",Toast.LENGTH_SHORT).show();
+                output.AsyncFinnished(result);
             }
 
 

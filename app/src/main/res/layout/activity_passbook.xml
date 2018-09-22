@@ -1,0 +1,79 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ubschallenge.upay.Passbook.Passbook"
+
+    >
+
+
+    <TextView
+        android:id="@+id/balanceTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Available Balance"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/balanceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹ 3060 "
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:textSize="50dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="45dp"
+
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+
+
+
+
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Send money from wallet"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+
+
+
+        android:text="Add money to wallet"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/blue"
+
+        android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+</LinearLayout>
