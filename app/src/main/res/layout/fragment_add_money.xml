@@ -17,11 +17,12 @@
         >
 
         <EditText
-            android:id="@+id/namesignup"
+            android:id="@+id/amt"
             android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:inputType = "number"
             android:hint="Amount"
 
             android:textColor="#607D8B"
@@ -33,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:text="@string/addMoneyFrag_promocode"
-            android:layout_alignEnd="@+id/namesignup"
-            android:layout_alignRight="@+id/namesignup"
+            android:layout_alignEnd="@+id/amt"
+            android:layout_alignRight="@+id/amt"
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
@@ -95,7 +96,7 @@
         <Button
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:id="@+id/buttonlogin"
+            android:id="@+id/proceed_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
