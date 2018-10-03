@@ -2,24 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="10dp"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.ubschallenge.upay.HomeFrag.HomeFrag">
 
     <LinearLayout
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#5fb0c9"
+        android:background="@color/themecolor"
         android:orientation="vertical"
         android:gravity="center"
 
         >
 
         <LinearLayout
+            android:padding="8dp"
            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#5fb0c9"
+            android:background="@color/themecolor"
             android:orientation="horizontal"
             android:gravity="center"
 
@@ -29,13 +32,13 @@
             android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="345"
-            android:textColor="#ffffff"
+            android:text=""
+            android:textColor="@color/textthemecolor"
             android:gravity="center"
             android:textSize="42sp"
 
             android:textStyle="bold"
-            android:padding="4dp"
+            android:padding="8dp"
 
 
             />
@@ -45,12 +48,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Rs"
-                android:textColor="#ffffff"
+                android:textColor="@color/textthemecolor"
                 android:gravity="center"
                 android:textSize="42sp"
 
                 android:textStyle="bold"
-                android:padding="4dp"
+                android:padding="8dp"
 
 
                 />
@@ -76,11 +79,12 @@
                >
 
                <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
                    android:padding="8dp"
-                   android:src="@drawable/ic_arrow_upward_black_24dp"
-                   android:tint="#ffffff"/>
+                   android:src="@drawable/pay"
+                   android:tint="#ffffff"
+                   />
 
                <TextView
                    android:layout_width="wrap_content"
@@ -89,7 +93,7 @@
                    android:textSize="16sp"
                    android:text="Pay"
 
-                   android:textColor="#ffffff"/>
+                   android:textColor="@color/textthemecolor"/>
 
 
 
@@ -109,19 +113,21 @@
                >
 
                <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
                    android:padding="8dp"
-                   android:src="@drawable/ic_arrow_downward_black_24dp"
-                   android:tint="#ffffff"/>
+                   android:src="@drawable/qrcode"
+                   android:tint="#ffffff"
+                  />
+
 
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:padding="8dp"
                    android:textSize="16sp"
-                   android:text="Request"
-                   android:textColor="#ffffff"/>
+                   android:text="Scan"
+                   android:textColor="@color/textthemecolor"/>
 
 
 
@@ -174,12 +180,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/addnew"/>
+                android:src="@drawable/addnew"
+                android:tint="@color/themecolor"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
 
 
                 android:gravity="center"
@@ -209,12 +216,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/passbook"/>
+                    android:src="@drawable/passbook"
+                    android:tint="@color/themecolor"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
 
 
                     android:gravity="center"

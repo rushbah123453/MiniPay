@@ -2,18 +2,29 @@ package com.ubschallenge.upay.HomeFrag;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.ubschallenge.upay.MainActivity;
 import com.ubschallenge.upay.NetworkCall.AsyncResponse;
 import com.ubschallenge.upay.NetworkCall.BckgroundTask;
+import com.ubschallenge.upay.Passbook.Passbook;
 import com.ubschallenge.upay.R;
+import com.ubschallenge.upay.NetworkCall.BckgroundTask;
+
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import com.ubschallenge.upay.SignUp.Signup;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -27,6 +38,7 @@ public class HomeFrag extends Fragment implements AsyncResponse {
     View view;
 TextView balance;
     SharedPreferences pref;
+    CardView card_view;
 
     public HomeFrag() {
         // Required empty public constructor
@@ -56,7 +68,16 @@ TextView balance;
         bckgroundTask.output=HomeFrag.this;
         bckgroundTask.execute("getBalance",phonenumber);
 
+        card_view = (CardView) view.findViewById(R.id.card2); // creating a CardView and assigning a value.
 
+        card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do whatever you want to do on click (to launch any fragment or activity you need to put intent here.)
+                Intent intent=new Intent(getContext(),Passbook.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -70,6 +91,7 @@ TextView balance;
 
     @Override
     public void AsyncFinnished(String output) {
+        output = output.replace("getBalance","");
         balance.setText(output);
         Toast.makeText(getContext(), "Balance"+output, Toast.LENGTH_SHORT).show();
     }

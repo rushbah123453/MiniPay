@@ -1,17 +1,24 @@
 package com.ubschallenge.upay.Passbook;
+import com.ubschallenge.upay.HomeFrag.AddMoneyFrag;
+import com.ubschallenge.upay.HomeFrag.HomeFrag;
 import com.ubschallenge.upay.MainActivity;
 import com.ubschallenge.upay.NetworkCall.AsyncResponse;
 import com.ubschallenge.upay.NetworkCall.BckgroundTask;
 import com.ubschallenge.upay.R;
+import com.ubschallenge.upay.SignUp.Signup;
 
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -21,10 +28,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,8 +56,8 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
     private static Map<String, Object> myMap;
     private static String phone_number = "1234";
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
-
-
+    private static TextView balance;
+    //private static Button proceed_add;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +68,45 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        BckgroundTask bckgroundTask1=new BckgroundTask(Passbook.this);
-        bckgroundTask1.output=Passbook.this;
-        bckgroundTask1.execute("getpassbook", phone_number);
+            balance=(TextView)findViewById(R.id.balanceValue);
+            SharedPreferences sharedPreferences=this.getSharedPreferences("pref", Context.MODE_PRIVATE);
+            BckgroundTask bckgroundTask=new BckgroundTask(Passbook.this);
+            String phonenumber=sharedPreferences.getString("sharedPhoneno", "default value");
 
+            //Toast.makeText(this,"shared phone"+phonenumber,Toast.LENGTH_SHORT).show();
+            bckgroundTask.output=Passbook.this;
+            bckgroundTask.execute("getBalance",phonenumber);
+            BckgroundTask bckgroundTask1=new BckgroundTask(Passbook.this);
+           bckgroundTask1.output=Passbook.this;
+        bckgroundTask1.execute("getpassbook", phone_number);
+        /*proceed_add =(Button) findViewById(R.id.proceed_add2);
+            proceed_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Fragment fragment=new AddMoneyFrag();
+                    loadFragment(fragment);
+                }
+            });*/
 
 
         }
 
+   /* private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }*/
 
     @Override
     public void AsyncFinnished(String output) {
+            if(output.startsWith("getBalance"))
+            {
+                output = output.replace("getBalance","");
+                balance.setText(output+" ₹");
+            }
+
             Log.i("Passbook Output :" ,output);
             try {
 
@@ -121,7 +158,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
                     ));
                 }
 
-                Toast.makeText(this,"Data "+data,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Data "+data,Toast.LENGTH_SHORT).show();
                 adapter = new Adapter(data);
                 recyclerView.setAdapter(adapter);
 
@@ -140,7 +177,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
             String ret_val = "";
             try
             {
-                Log.i("Date Input",s);
+                //Log.i("Date Input",s);
                 SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date=formatter.parse(s);
                 formatter = new SimpleDateFormat("dd MMM yyyy");

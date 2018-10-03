@@ -340,7 +340,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         ctx.startActivity(intentnew);*/
 
 
-            Toast.makeText(ctx,"this is response "+result,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ctx,"this is response "+result,Toast.LENGTH_SHORT).show();
 
             if(result.equals("1") && methodType.equals("signin"))
 
@@ -456,7 +456,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
             else if(methodType.equals("getBalance")){
 
-                output.AsyncFinnished(result);
+                output.AsyncFinnished("getBalance"+result);
             }
 
 

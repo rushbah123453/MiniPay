@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="grey">#bdbdbd</color>
-    <color name="blue">#FF1B8DE4</color>
+    <color name="blue">#3a8ca5</color>
+    <color name="themecolor">#5fb0c9</color>
+
     <color name="skyblue">#40c4ff</color>
     <color name="lightskyblue">#FFB3E5FC</color>
+
+    <color name="textthemecolor">#FFFFFF</color>
 </resources>
