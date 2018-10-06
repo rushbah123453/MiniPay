@@ -1,0 +1,137 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="#ffffff"
+    tools:context="com.ubschallenge.upay.HomeFrag.PayFrag">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            >
+
+            <EditText
+                android:id="@+id/payToMobileNumber"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/payFrag_enterdetails"
+                android:textColor="#607D8B"
+                android:textSize="18sp"
+
+                />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+
+                android:layout_alignEnd="@id/payToMobileNumber"
+                android:layout_alignRight="@id/payToMobileNumber"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_contact_phone_black_24dp" />
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Amount"
+
+            android:textColor="#607D8B"
+            android:textSize="18sp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/addMoneyFrag_promocode"
+            android:layout_alignEnd="@+id/amount"
+            android:layout_alignRight="@+id/amount"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/skyblue"
+            />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:orientation="horizontal">
+
+
+        <Button
+
+            android:id="@+id/add100"
+            android:clipToPadding="false"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+
+            android:layout_marginRight="12dp"
+            android:elevation="12dp"
+            android:translationZ="24dp"
+
+            android:background="@drawable/bordder_button"
+            android:text="+100"/>
+
+        <Button
+            android:id="@+id/add200"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+
+            android:background="@drawable/bordder_button"
+            android:text="+200"/>
+
+        <Button
+            android:id="@+id/add500"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+
+            android:background="@drawable/bordder_button"
+            android:text="+500"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/payMoney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple"
+        android:text="@string/payMoneyFrag_proceed"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+
+        android:padding="1dp"/>
+
+    </LinearLayout>
