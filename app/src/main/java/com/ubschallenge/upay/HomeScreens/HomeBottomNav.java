@@ -53,7 +53,7 @@ public class HomeBottomNav extends AppCompatActivity {
                     return true;
                 case R.id.payfrag_pay:
                    /* toolbar.setTitle("My Gifts");*/
-                    fragment=new PayFrag();
+                    fragment=new PayFrag("");
                     loadFragment(fragment);
                     Toast.makeText(HomeBottomNav.this,"Pay clicked",Toast.LENGTH_SHORT).show();
                     return true;
