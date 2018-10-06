@@ -25,11 +25,11 @@
 
         android:textStyle="bold"/>
     <TextView
-
+        android:id="@+id/success_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Money added to wallet successfully!"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 

@@ -15,10 +15,13 @@ import com.ubschallenge.upay.R;
 
 @SuppressLint("ValidFragment")
 public class PaymentSuccessful extends Fragment  {
-    private String amt;
-    public PaymentSuccessful(String amt)
+    private String amt,type,number;
+
+    public PaymentSuccessful(String amt,String type,String number)
     {
         this.amt = amt;
+        this.type = type;
+        this.number = number;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +35,15 @@ public class PaymentSuccessful extends Fragment  {
         super.onViewCreated(view, savedInstanceState);
         TextView s = (TextView)getView().findViewById(R.id.amt_transfered);
         s.setText("₹ "+amt);
+
+        TextView text = (TextView)getView().findViewById(R.id.success_text);
+        if(type.equals("add"))
+            text.setText("Money added to wallet successfully!");
+        else if(type.equals("pay"))
+        {
+            text.setText("Transaction to "+number+" is successfully done!");
+        }
+
     }
 
 

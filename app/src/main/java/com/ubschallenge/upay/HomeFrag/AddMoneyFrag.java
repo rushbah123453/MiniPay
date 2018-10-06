@@ -133,7 +133,7 @@ public class AddMoneyFrag extends Fragment implements AsyncResponse, View.OnClic
     public void AsyncFinnished(String output) {
         Toast.makeText(getContext(),"Output add money"+output,Toast.LENGTH_SHORT).show();
         if(output.trim().equals("1")) {
-            Fragment fragment2 = new PaymentSuccessful(amt_send);
+            Fragment fragment2 = new PaymentSuccessful(amt_send,"add","");
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.frame_container, fragment2);
