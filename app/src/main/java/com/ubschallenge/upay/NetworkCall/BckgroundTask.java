@@ -70,6 +70,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String addmoney = "http://18.219.106.142:8080/addmoney";
         String pay_url="http://18.219.106.142:8080/transfer";
         String getbalance="http://18.219.106.142:8080/getbalance";
+        String getprofile="http://18.219.106.142:8080/getprofile";
         String method = voids[0];
 
         Response response = null;
@@ -219,6 +220,29 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                         .build();
 
                 response = client.newCall(request).execute();
+
+            }
+
+            else if(method.equals("getprofile")){
+
+
+                String fromMobile = voids[1];
+                methodType="getprofile";
+
+
+                JSONObject jsonParam4 = new JSONObject();
+                jsonParam4.put("phone", fromMobile);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam4.toString());
+                Request request = new Request.Builder()
+                        .url(getprofile)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+
 
             }
 
@@ -460,6 +484,12 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             else if(methodType.equals("getBalance")){
 
                 output.AsyncFinnished("getBalance"+result);
+            }else if (result.equals("1") && methodType.equals("getprofile")) {
+
+                Toast.makeText(ctx,"Profile recieved",Toast.LENGTH_SHORT).show();
+                output.AsyncFinnished(result);
+
+
             }
 
 

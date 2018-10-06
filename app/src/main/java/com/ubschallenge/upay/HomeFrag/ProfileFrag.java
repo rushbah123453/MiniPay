@@ -13,13 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ubschallenge.upay.MainActivity;
+import com.ubschallenge.upay.NetworkCall.AsyncResponse;
+import com.ubschallenge.upay.NetworkCall.BckgroundTask;
 import com.ubschallenge.upay.R;
 import com.ubschallenge.upay.SplashScreens.SplashScreen;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFrag extends Fragment {
+public class ProfileFrag extends Fragment implements AsyncResponse{
 
     TextView logout;
     View view;
@@ -56,8 +58,33 @@ public class ProfileFrag extends Fragment {
 
 
 
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        String phonenumber=sharedPreferences.getString("sharedPhoneno", "default value");
+
+
+
+
+        Toast.makeText(getContext(),"shared phone"+phonenumber,Toast.LENGTH_SHORT).show();
+        BckgroundTask bckgroundTask=new BckgroundTask(getContext());
+        bckgroundTask.output=  ProfileFrag.this;
+        bckgroundTask.execute("getprofile",phonenumber);
+
+
+
+
+
+
+
+
+
 
         return view;
     }
 
+    @Override
+    public void AsyncFinnished(String output) {
+        Toast.makeText(getContext(),"Profile"+output,Toast.LENGTH_SHORT).show();
+
+
+    }
 }
