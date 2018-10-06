@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
     EditText payRecipient,amt;
     Button payNow;
     View view;
-    String amt_send;
+    String amt_send,recip_send;
     String pay_to;
     String hardCodedAmount="5";
     String hardCodedFromPhoneNumber="1234";
@@ -44,13 +45,17 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
         this.pay_to = pay_to;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-         view=inflater.inflate(R.layout.fragment_pay, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_pay, container, false);
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.i("Inside oncreate", "VIEW");
         amt100 = (Button) getView().findViewById(R.id.add100);
         amt100.setOnClickListener(this);
 
@@ -80,15 +85,6 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
 
 
 
-
-
-
-
-
-
-
-
-        return view;
     }
 
 
@@ -97,7 +93,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
         String temp="0";
         switch (view.getId()) {
 
-            case R.id.proceed_add:
+            case R.id.payMoney:
 
                 String temp_amt =  amt.getText().toString();
                 if(temp_amt.equals("") || temp_amt.equals("0"))
@@ -111,6 +107,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
                     bckgroundTask1.output=this;
                     bckgroundTask1.execute("payMoney",phonenumber,payRecipient.getText().toString(),amt.getText().toString());
                     this.amt_send = temp_amt;
+                    this.recip_send = payRecipient.getText().toString();
 
                 }
 
@@ -155,7 +152,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
     public void AsyncFinnished(String output) {
         Toast.makeText(getContext(),"Output add money"+output,Toast.LENGTH_SHORT).show();
         if(output.trim().equals("1")) {
-            Fragment fragment2 = new PaymentSuccessful(amt_send);
+            Fragment fragment2 = new PaymentSuccessful(amt_send,"pay",recip_send);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.frame_container, fragment2);
@@ -164,7 +161,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
         }
         else
         {
-            Toast.makeText(getContext(),"Error occured while adding money!"+output,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Error occured while paying money!"+output,Toast.LENGTH_SHORT).show();
         }
 
     }
