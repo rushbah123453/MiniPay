@@ -41,7 +41,7 @@ public class HomeFrag extends Fragment implements AsyncResponse {
     View view;
 TextView balance;
     SharedPreferences pref;
-    CardView card_view;
+    CardView card_view,card_view1;
     LinearLayout pay_home;
     LinearLayout scan_home;
     private IntentIntegrator qrScan;
@@ -84,6 +84,21 @@ TextView balance;
                 startActivity(intent);
             }
         });
+
+
+        card_view1 = (CardView) view.findViewById(R.id.card1); // creating a CardView and assigning a value.
+
+        card_view1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do whatever you want to do on click (to launch any fragment or activity you need to put intent here.)
+                Fragment fragment=new AddMoneyFrag();
+                loadFragment(fragment);
+                Toast.makeText(getContext(),"Add Money clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
         pay_home = (LinearLayout )view.findViewById(R.id.pay_home);
         scan_home = (LinearLayout )view.findViewById(R.id.scan_home);
