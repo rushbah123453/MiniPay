@@ -40,8 +40,6 @@ public class PayFrag extends Fragment {
         // Inflate the layout for this fragment
 
          view=inflater.inflate(R.layout.fragment_pay, container, false);
-
-
         payRecipient=(EditText)view.findViewById(R.id.payToMobileNumber);
         addAmount=(EditText)view.findViewById(R.id.amount);
         payNow=(Button)view.findViewById(R.id.payMoney);
