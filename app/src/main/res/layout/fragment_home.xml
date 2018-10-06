@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/themecolor"
+        android:background="#5fb0c9"
         android:orientation="vertical"
         android:gravity="center"
 
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/textthemecolor"
+            android:textColor="#ffffff"
             android:gravity="center"
             android:textSize="42sp"
 
@@ -95,7 +95,7 @@
                    android:textSize="16sp"
                    android:text="Pay"
 
-                   android:textColor="@color/textthemecolor"/>
+                   android:textColor="#ffffff"/>
 
 
 
@@ -130,7 +130,7 @@
                    android:padding="8dp"
                    android:textSize="16sp"
                    android:text="Scan"
-                   android:textColor="@color/textthemecolor"/>
+                   android:textColor="#ffffff"/>
 
 
 
@@ -170,6 +170,7 @@
             android:id="@+id/card1"
             app:cardElevation="6dp"
             app:cardCornerRadius="8dp"
+            android:backgroundTint="#ffffff"
             >
 
         <LinearLayout
@@ -177,6 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
+
             android:orientation="horizontal">
 
             <ImageView
@@ -184,14 +186,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/addnew"
-                android:tint="@color/themecolor"/>
+                android:tint="#5fb0c9"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
 
-
+android:textColor="@color/grey"
                 android:gravity="center"
                 android:text="Add Money"
             />
@@ -207,6 +209,7 @@
             android:id="@+id/card2"
             app:cardElevation="6dp"
             app:cardCornerRadius="8dp"
+            android:backgroundTint="#ffffff"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -220,13 +223,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:src="@drawable/passbook"
-                    android:tint="@color/themecolor"/>
+                    android:tint="#5fb0c9"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
+                    android:textColor="@color/grey"
                     android:text="Passbook"
                     />
             </LinearLayout>
