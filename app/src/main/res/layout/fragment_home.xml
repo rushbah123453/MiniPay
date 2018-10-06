@@ -76,9 +76,11 @@
                android:orientation="vertical"
                android:layout_gravity="center"
                android:gravity="center"
+                android:id="@+id/pay_home"
                >
 
                <ImageView
+
                    android:layout_width="50dp"
                    android:layout_height="50dp"
                    android:padding="8dp"
@@ -110,6 +112,7 @@
                android:orientation="vertical"
                android:layout_gravity="center"
                android:gravity="center"
+               android:id="@+id/scan_home"
                >
 
                <ImageView
