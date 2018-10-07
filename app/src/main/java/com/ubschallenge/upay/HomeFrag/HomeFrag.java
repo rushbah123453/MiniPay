@@ -59,8 +59,8 @@ TextView balance,addmoney,passbook;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_home, container, false);
 
-        addmoney=(TextView)view.findViewById(R.id.addmoneyhome) ;
-        passbook=(TextView)view.findViewById(R.id.passbookhome);
+        //addmoney=(TextView)view.findViewById(R.id.addmoney) ;
+        //passbook=(TextView)view.findViewById(R.id.passbookhome);
 
         balance=(TextView)view.findViewById(R.id.balance);
         SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
