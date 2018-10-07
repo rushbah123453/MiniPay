@@ -92,24 +92,27 @@ TextView balance,addmoney,passbook;
         });
 
 
-     //   card_view3 = (CardView) view.findViewById(R.id.card3); // creating a CardView and assigning a value.
+        card_view3 = (CardView) view.findViewById(R.id.card3); // creating a CardView and assigning a value.
 
-     /*   card_view3.setOnClickListener(new View.OnClickListener() {
+        card_view3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // do whatever you want to do on click (to launch any fragment or activity you need to put intent here.)
-                Intent intent = new Intent("android.intent.action.VIEW");
 
-                *//** creates an sms uri *//*
-                Uri data = Uri.parse("sms:");
+                String phoneNumber = "8605959619";
+                //String smsBody = "Enter phone number: "+"\n"+"Enter Amount:";
+                String smsBody = "1234,4321,10";
 
-                *//** Setting sms uri to the intent *//*
-                intent.setData(data);
+            // Add the phone number in the data
+                Uri uri = Uri.parse("smsto:" + phoneNumber);
+            // Create intent with the action and data
+                Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
+            // smsIntent.setData(uri); // We just set the data in the constructor above
+            // Set the message
+                smsIntent.putExtra("sms_body", smsBody);
+                startActivity(smsIntent);
 
-                *//** Initiates the SMS compose screen, because the activity contain ACTION_VIEW and sms uri *//*
-                startActivity(intent);
             }
-        });*/
+        });
 
         card_view1 = (CardView) view.findViewById(R.id.card1); // creating a CardView and assigning a value.
 

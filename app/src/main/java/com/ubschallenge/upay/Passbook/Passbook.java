@@ -12,6 +12,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SyncStatusObserver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -38,12 +39,16 @@ import org.w3c.dom.Text;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 
 public class Passbook extends AppCompatActivity implements AsyncResponse {
@@ -114,13 +119,25 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
                 myMap =  JSONUtil.toMap(Jobject);
                 Log.i("Mapped Passbook val",myMap.toString());
                 data = new ArrayList<DataModel>();
-                for (Map.Entry<String, Object> entry : myMap.entrySet())
+                ArrayList l = new ArrayList(myMap.keySet());
+                System.out.println("LIST>>>"+l);
+                ArrayList keyList = new ArrayList();
+                for(int i = 0;i<l.size();i++)
                 {
+                    keyList.add(Integer.parseInt(l.get(i).toString()));
+                }
+                Collections.sort(keyList);
 
+                System.out.println("FINAL>>"+keyList);
 
-                    String temp = entry.getValue().toString().replace("[","");
+                for (int i = keyList.size()-1 ; i >= 1; i--) {
+                //for (Map.Entry<String, Object> entry : myMap.entrySet()) {
+                    String key = ""+keyList.get(i);
+                    System.out.println("CHECK >>> "+key + "/" + myMap.get(key));
+
+                    String temp = myMap.get(key).toString().replace("[","");
                     temp = temp.replace("]","");
-                    System.out.println(entry.getKey() + "/" + temp);
+                    System.out.println(key + "/" + temp);
                     String val[] = temp.split(",");
                     String search_for="";
                     String amt ="";
@@ -150,7 +167,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
 
                     Log.i("Before adapter",val[0]+" "+name+" "+amt+" "+time);
                     data.add(new DataModel(
-                            Integer.parseInt(entry.getKey()),
+                            Integer.parseInt(key),
                             val[0], //from
                             name, //to
                            amt, //amt
@@ -159,6 +176,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
                 }
 
                 //Toast.makeText(this,"Data "+data,Toast.LENGTH_SHORT).show();
+
                 adapter = new Adapter(data);
                 recyclerView.setAdapter(adapter);
 
@@ -180,7 +198,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
                 //Log.i("Date Input",s);
                 SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date=formatter.parse(s);
-                formatter = new SimpleDateFormat("dd MMM yyyy");
+                formatter = new SimpleDateFormat("dd MMM yyyy    HH:mm:ss");
                 ret_val = formatter.format(date);
                 Log.i("Date converted",ret_val);
             }
