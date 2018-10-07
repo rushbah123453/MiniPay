@@ -2,12 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:paddingTop="0dp"
-=======
-    android:paddingTop="10dp"
     android:paddingBottom="14dp"
->>>>>>> 0933053ad4ab8b2c7e79013654a044c800562730
     android:orientation="vertical"
     android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -164,44 +160,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-<<<<<<< HEAD
         android:orientation="vertical">
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-=======
->>>>>>> 0933053ad4ab8b2c7e79013654a044c800562730
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:background="#ffffff"
-        >
-<<<<<<< HEAD
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:layout_margin="8dp"
-            android:id="@+id/card1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="8dp"
-            android:backgroundTint="#ffffff"
-            >
 
-=======
->>>>>>> 0933053ad4ab8b2c7e79013654a044c800562730
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
@@ -213,7 +187,7 @@
                 android:layout_height="120dp"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:id="@+id/card1"
+android:id="@+id/card1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="8dp"
                 android:backgroundTint="#ffffff"
@@ -287,12 +261,11 @@
 
 
 
-<<<<<<< HEAD
 
 
             </LinearLayout>
 
-=======
+
             </LinearLayout>
 
         <LinearLayout
@@ -304,7 +277,7 @@
             android:background="#ffffff"
             >
 
-
+<!--
             <android.support.v7.widget.CardView
                 android:layout_width="160dp"
                 android:layout_height="100dp"
@@ -338,8 +311,7 @@
                         android:text="Go Offline"
                         />
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
->>>>>>> 0933053ad4ab8b2c7e79013654a044c800562730
+            </android.support.v7.widget.CardView>-->
         </LinearLayout>
 
     </LinearLayout>
@@ -349,4 +321,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+

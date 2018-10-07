@@ -59,7 +59,7 @@ TextView balance,addmoney,passbook;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_home, container, false);
 
-        addmoney=(TextView)view.findViewById(R.id.addmoneyhome) ;
+
         passbook=(TextView)view.findViewById(R.id.passbookhome);
 
         balance=(TextView)view.findViewById(R.id.balance);
@@ -91,24 +91,24 @@ TextView balance,addmoney,passbook;
         });
 
 
-        card_view3 = (CardView) view.findViewById(R.id.card3); // creating a CardView and assigning a value.
+     //   card_view3 = (CardView) view.findViewById(R.id.card3); // creating a CardView and assigning a value.
 
-        card_view3.setOnClickListener(new View.OnClickListener() {
+     /*   card_view3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // do whatever you want to do on click (to launch any fragment or activity you need to put intent here.)
                 Intent intent = new Intent("android.intent.action.VIEW");
 
-                /** creates an sms uri */
+                *//** creates an sms uri *//*
                 Uri data = Uri.parse("sms:");
 
-                /** Setting sms uri to the intent */
+                *//** Setting sms uri to the intent *//*
                 intent.setData(data);
 
-                /** Initiates the SMS compose screen, because the activity contain ACTION_VIEW and sms uri */
+                *//** Initiates the SMS compose screen, because the activity contain ACTION_VIEW and sms uri *//*
                 startActivity(intent);
             }
-        });
+        });*/
 
         card_view1 = (CardView) view.findViewById(R.id.card1); // creating a CardView and assigning a value.
 
