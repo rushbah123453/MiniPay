@@ -79,7 +79,7 @@ String otp;
     aadhar=getIntent().getExtras().getString("aadhar");
     email=getIntent().getExtras().getString("email");
     username1=getIntent().getExtras().getString("name");
-    pwd=getIntent().getExtras().getString("name");
+    pwd=getIntent().getExtras().getString("passwd");
 
         Toast.makeText(getApplicationContext(),mobileno1,Toast.LENGTH_SHORT).show();
         final CodeInputView codeInputView=(CodeInputView)findViewById(R.id.otp_CodeInput);

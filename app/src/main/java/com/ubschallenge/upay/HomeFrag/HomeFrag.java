@@ -40,7 +40,7 @@ public class HomeFrag extends Fragment implements AsyncResponse {
 
 
     View view;
-TextView balance;
+TextView balance,addmoney,passbook;
     SharedPreferences pref;
     CardView card_view,card_view1,card_view3;
     LinearLayout pay_home;
@@ -58,6 +58,9 @@ TextView balance;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_home, container, false);
+
+        addmoney=(TextView)view.findViewById(R.id.addmoneyhome) ;
+        passbook=(TextView)view.findViewById(R.id.passbookhome);
 
         balance=(TextView)view.findViewById(R.id.balance);
         SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
@@ -119,6 +122,8 @@ TextView balance;
 
             }
         });
+
+
 
 
         pay_home = (LinearLayout )view.findViewById(R.id.pay_home);

@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:textColor="#607D8B"
                 android:hint="@string/payFrag_enterdetails"
                 android:textColorHint="@color/grey"
                 android:textSize="18sp"

@@ -1,7 +1,9 @@
 package com.ubschallenge.upay.HomeFrag;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,7 +35,8 @@ public class AddMoneyFrag extends Fragment implements AsyncResponse, View.OnClic
     private Button add;
     private String toPhone = "1234";
     private String amt_send;
-
+    String phonenumber;
+    SharedPreferences sharedPreferences;
     public AddMoneyFrag() {
         // Required empty public constructor
     }
@@ -44,6 +47,12 @@ public class AddMoneyFrag extends Fragment implements AsyncResponse, View.OnClic
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
+
+
+        sharedPreferences=this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        phonenumber=sharedPreferences.getString("sharedPhoneno", "default value");
+
+
         return inflater.inflate(R.layout.fragment_add_money, container, false);
     }
     @Override
@@ -87,7 +96,7 @@ public class AddMoneyFrag extends Fragment implements AsyncResponse, View.OnClic
                     Toast.makeText(getContext(),temp_amt,Toast.LENGTH_SHORT).show();
                     BckgroundTask bckgroundTask1=new BckgroundTask(getContext());
                     bckgroundTask1.output=this;
-                    bckgroundTask1.execute("addmoney", toPhone, temp_amt);
+                    bckgroundTask1.execute("addmoney", phonenumber, temp_amt);
                     this.amt_send = temp_amt;
 
                 }

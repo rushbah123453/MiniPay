@@ -80,12 +80,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                editor.putString("sharedPhoneno",phoneno.getText().toString());
+                editor.putString("sharedPhoneno","+91"+phoneno.getText().toString());
              //   editor.putString("phone",password.getText().toString());
                 editor.commit();
 
                 BckgroundTask bckgroundTask1=new BckgroundTask(MainActivity.this);
-                bckgroundTask1.execute("signin","91"+phoneno.getText().toString(),password.getText().toString());
+                bckgroundTask1.execute("signin","+91"+phoneno.getText().toString(),password.getText().toString());
 
 
 
