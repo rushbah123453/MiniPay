@@ -13,7 +13,8 @@
         android:paddingBottom="2dp"
         android:paddingTop="2dp"
         card_view:cardElevation="2dp"
-
+        android:background="#ffffff"
+android:backgroundTint="#ffffff"
         card_view:cardPreventCornerOverlap="false"
         card_view:cardUseCompatPadding="true"
         >
@@ -44,6 +45,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="To Phone"
+                    android:textColor="#5fb0c9"
                     android:textStyle="bold"
                     android:paddingLeft="3dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -59,8 +61,6 @@
                 android:orientation="vertical"
                 >
 
-                // Column B, row 2.
-                // Put your content here..
 
                 <TextView
                     android:id="@+id/timeStamp"
@@ -69,6 +69,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="Time Stamp"
+                    android:textColor="@color/grey"
                     android:paddingLeft="3dp"
                     android:paddingBottom="3dp"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
