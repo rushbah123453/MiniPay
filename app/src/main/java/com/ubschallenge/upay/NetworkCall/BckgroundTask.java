@@ -436,45 +436,72 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             else if(result.equals("false") && methodType.equals("validateAlreadyExistingUser")){
 
                 Toast.makeText(ctx,"User Already Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             else if(result.equals("true") && methodType.equals("validateAlreadyExistingUser")){
                 Toast.makeText(ctx,"User Not Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
-
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 
             }
             else if(methodType.equals("getpassbook"))
             {
                 Toast.makeText(ctx,"Passbook details fetched",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             else if(methodType.equals("addmoney"))
             {
                 Toast.makeText(ctx,"Money Added",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
 
             else if (methodType.equals("payMoney") && result.equals("1452"))
             {
                 Toast.makeText(ctx,"Reciepient User Not Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             else if (methodType.equals("payMoney") && result.equals("1644"))
             {
                 Toast.makeText(ctx,"Insufficient balance",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
 
             else if (methodType.equals("payMoney") && result.equals("1"))
             {
                 Toast.makeText(ctx,"Added Money",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             else if(methodType.equals("getBalance") && result.equals("-1")){
 
@@ -483,11 +510,19 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
             else if(methodType.equals("getBalance")){
 
-                output.AsyncFinnished("getBalance"+result);
-            }else if (result.equals("1") && methodType.equals("getprofile")) {
+                try {
+                    output.AsyncFinnished("getBalance"+result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }else if ( methodType.equals("getprofile")) {
 
                 Toast.makeText(ctx,"Profile recieved",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 
             }

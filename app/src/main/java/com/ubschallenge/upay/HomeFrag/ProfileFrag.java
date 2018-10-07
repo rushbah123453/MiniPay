@@ -18,6 +18,9 @@ import com.ubschallenge.upay.NetworkCall.BckgroundTask;
 import com.ubschallenge.upay.R;
 import com.ubschallenge.upay.SplashScreens.SplashScreen;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -82,9 +85,13 @@ public class ProfileFrag extends Fragment implements AsyncResponse{
     }
 
     @Override
-    public void AsyncFinnished(String output) {
+    public void AsyncFinnished(String output) throws JSONException {
         Toast.makeText(getContext(),"Profile"+output,Toast.LENGTH_SHORT).show();
+        JSONObject jsonObject=new JSONObject(output);
+        JSONObject response_data=jsonObject.getJSONObject("response_data");
+        String name=response_data.getString("u_name");
 
+        Toast.makeText(getContext(),"name"+name,Toast.LENGTH_SHORT).show();
 
     }
 }
