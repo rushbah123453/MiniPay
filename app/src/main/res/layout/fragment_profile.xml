@@ -149,6 +149,8 @@
                 android:id="@+id/emailprofile"
                 android:textStyle="bold"
                 android:textColor="#5fb0c9"
+                android:hint="Email Id"
+                android:textColorHint="#5fb0c9"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,27 +173,8 @@
                 android:id="@+id/phoneprofile"
                 android:textStyle="bold"
                 android:textColor="#5fb0c9"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text=""/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:tint="#5fb0c9"
-                android:src="@drawable/ic_group_add_black_24dp"/>
-            <TextView
-                android:id="@+id/adharprofile"
-                android:textStyle="bold"
-                android:textColor="#5fb0c9"
+                android:hint="Phone Number"
+                android:textColorHint="#5fb0c9"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -209,6 +192,29 @@
                 android:layout_height="36dp"
                 android:tint="#5fb0c9"
                 android:src="@drawable/adhar"/>
+            <TextView
+                android:id="@+id/adharprofile"
+                android:textStyle="bold"
+                android:textColor="#5fb0c9"
+                android:hint="Aadhar Number"
+                android:textColorHint="#5fb0c9"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:tint="#5fb0c9"
+                android:src="@drawable/ic_power_settings_new_black_24dp"/>
             <TextView
                 android:id="@+id/logout"
                 android:textStyle="bold"
