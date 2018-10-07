@@ -405,6 +405,32 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 alBuilder.show();
 
             }
+            else if(result.equals("0") && methodType.equals("signin")){
+
+                Toast.makeText(ctx,"In Dialog Box",Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder alBuilder=new AlertDialog.Builder(ctx);
+
+                alBuilder.setTitle("Wrong Credentials").setMessage("Please check phone number or password again");
+                alBuilder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(ctx,"Dialog Box "+"Retry Clicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                alBuilder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(ctx,"Dialog Box "+"Back Clicked",Toast.LENGTH_SHORT).show();
+                      //  Intent intent=new Intent(ctx, Signup.class);
+                      //  ctx.startActivity(intent);
+                    }
+                });
+
+                alBuilder.show();
+
+            }
             else if (result.equals("1062") && methodType.equals("signup")){
                 AlertDialog.Builder alBuilder=new AlertDialog.Builder(ctx);
 
