@@ -98,9 +98,9 @@ TextView balance,addmoney,passbook;
             @Override
             public void onClick(View v) {
 
-                String phoneNumber = "8605959619";
-                //String smsBody = "Enter phone number: "+"\n"+"Enter Amount:";
-                String smsBody = "1234,4321,10";
+                String phoneNumber = "9284191937";
+                String smsBody = "Enter phone number: "+"\n"+"Enter Amount:";
+                //String smsBody = "1234,4321,10";
 
             // Add the phone number in the data
                 Uri uri = Uri.parse("smsto:" + phoneNumber);
