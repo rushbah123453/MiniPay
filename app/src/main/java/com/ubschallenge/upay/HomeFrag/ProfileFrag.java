@@ -92,7 +92,7 @@ public class ProfileFrag extends Fragment implements AsyncResponse{
 
     @Override
     public void AsyncFinnished(String output) throws JSONException {
-        Toast.makeText(getContext(),"Profile"+output,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(),"Profile"+output,Toast.LENGTH_SHORT).show();
         JSONObject jsonObject=new JSONObject(output);
         JSONObject response_data=jsonObject.getJSONObject("response_data");
         String name_response=response_data.getString("u_name");
