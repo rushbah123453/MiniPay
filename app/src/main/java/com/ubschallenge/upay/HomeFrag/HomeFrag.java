@@ -4,6 +4,7 @@ package com.ubschallenge.upay.HomeFrag;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,10 +42,11 @@ public class HomeFrag extends Fragment implements AsyncResponse {
     View view;
 TextView balance;
     SharedPreferences pref;
-    CardView card_view,card_view1;
+    CardView card_view,card_view1,card_view3;
     LinearLayout pay_home;
     LinearLayout scan_home;
     private IntentIntegrator qrScan;
+
 
     public HomeFrag() {
         // Required empty public constructor
@@ -85,6 +87,25 @@ TextView balance;
             }
         });
 
+
+        card_view3 = (CardView) view.findViewById(R.id.card3); // creating a CardView and assigning a value.
+
+        card_view3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do whatever you want to do on click (to launch any fragment or activity you need to put intent here.)
+                Intent intent = new Intent("android.intent.action.VIEW");
+
+                /** creates an sms uri */
+                Uri data = Uri.parse("sms:");
+
+                /** Setting sms uri to the intent */
+                intent.setData(data);
+
+                /** Initiates the SMS compose screen, because the activity contain ACTION_VIEW and sms uri */
+                startActivity(intent);
+            }
+        });
 
         card_view1 = (CardView) view.findViewById(R.id.card1); // creating a CardView and assigning a value.
 
@@ -131,6 +152,8 @@ TextView balance;
                  }
              }
         );
+
+
 
 
 
