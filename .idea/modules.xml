@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MiniPay.iml" filepath="$PROJECT_DIR$/MiniPay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UPay.iml" filepath="$PROJECT_DIR$/UPay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

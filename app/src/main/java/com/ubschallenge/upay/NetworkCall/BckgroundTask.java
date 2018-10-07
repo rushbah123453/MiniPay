@@ -70,6 +70,7 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
         String addmoney = "http://18.219.106.142:8080/addmoney";
         String pay_url="http://18.219.106.142:8080/transfer";
         String getbalance="http://18.219.106.142:8080/getbalance";
+        String getprofile="http://18.219.106.142:8080/getprofile";
         String method = voids[0];
 
         Response response = null;
@@ -219,6 +220,29 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                         .build();
 
                 response = client.newCall(request).execute();
+
+            }
+
+            else if(method.equals("getprofile")){
+
+
+                String fromMobile = voids[1];
+                methodType="getprofile";
+
+
+                JSONObject jsonParam4 = new JSONObject();
+                jsonParam4.put("phone", fromMobile);
+
+
+                RequestBody body = RequestBody.create(JSON, jsonParam4.toString());
+                Request request = new Request.Builder()
+                        .url(getprofile)
+                        .post(body)
+                        .build();
+
+                response = client.newCall(request).execute();
+
+
 
             }
 
@@ -381,6 +405,32 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
                 alBuilder.show();
 
             }
+            else if(result.equals("0") && methodType.equals("signin")){
+
+                Toast.makeText(ctx,"In Dialog Box",Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder alBuilder=new AlertDialog.Builder(ctx);
+
+                alBuilder.setTitle("Wrong Credentials").setMessage("Please check phone number or password again");
+                alBuilder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(ctx,"Dialog Box "+"Retry Clicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                alBuilder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(ctx,"Dialog Box "+"Back Clicked",Toast.LENGTH_SHORT).show();
+                      //  Intent intent=new Intent(ctx, Signup.class);
+                      //  ctx.startActivity(intent);
+                    }
+                });
+
+                alBuilder.show();
+
+            }
             else if (result.equals("1062") && methodType.equals("signup")){
                 AlertDialog.Builder alBuilder=new AlertDialog.Builder(ctx);
 
@@ -412,45 +462,72 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
             else if(result.equals("false") && methodType.equals("validateAlreadyExistingUser")){
 
                 Toast.makeText(ctx,"User Already Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             else if(result.equals("true") && methodType.equals("validateAlreadyExistingUser")){
                 Toast.makeText(ctx,"User Not Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
-
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 
             }
             else if(methodType.equals("getpassbook"))
             {
                 Toast.makeText(ctx,"Passbook details fetched",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             else if(methodType.equals("addmoney"))
             {
                 Toast.makeText(ctx,"Money Added",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
 
             else if (methodType.equals("payMoney") && result.equals("1452"))
             {
                 Toast.makeText(ctx,"Reciepient User Not Existing",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             else if (methodType.equals("payMoney") && result.equals("1644"))
             {
                 Toast.makeText(ctx,"Insufficient balance",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
 
             else if (methodType.equals("payMoney") && result.equals("1"))
             {
                 Toast.makeText(ctx,"Added Money",Toast.LENGTH_SHORT).show();
-                output.AsyncFinnished(result);
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             else if(methodType.equals("getBalance") && result.equals("-1")){
 
@@ -459,7 +536,21 @@ public class BckgroundTask  extends AsyncTask<String, Void, String>  {
 
             else if(methodType.equals("getBalance")){
 
-                output.AsyncFinnished("getBalance"+result);
+                try {
+                    output.AsyncFinnished("getBalance"+result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }else if ( methodType.equals("getprofile")) {
+
+                Toast.makeText(ctx,"Profile recieved",Toast.LENGTH_SHORT).show();
+                try {
+                    output.AsyncFinnished(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
             }
 
 
