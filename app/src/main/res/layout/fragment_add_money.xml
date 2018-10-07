@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
+
     tools:context="com.ubschallenge.upay.HomeFrag.AddMoneyFrag">
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +26,7 @@
             android:layout_marginBottom="16dp"
             android:inputType = "number"
             android:hint="Amount"
+            android:textColorHint="@color/grey"
 
             android:textColor="#607D8B"
             android:textSize="18sp"
@@ -39,7 +42,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
-            android:textColor="@color/skyblue"
+            android:textColor="#5fb0c9"
             />
     </RelativeLayout>
 
@@ -64,7 +67,7 @@
             android:layout_marginRight="12dp"
             android:elevation="12dp"
             android:translationZ="24dp"
-
+            android:textColor="#5fb0c9"
             android:background="@drawable/bordder_button"
             android:text="+100"/>
 
@@ -75,7 +78,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-
+            android:textColor="#5fb0c9"
             android:background="@drawable/bordder_button"
             android:text="+200"/>
 
@@ -86,7 +89,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-
+            android:textColor="#5fb0c9"
             android:background="@drawable/bordder_button"
             android:text="+500"/>
 
