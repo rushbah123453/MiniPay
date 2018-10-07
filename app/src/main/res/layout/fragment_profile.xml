@@ -22,11 +22,12 @@
                 android:layout_height="wrap_content"/>
                 <!--android:src="@drawable/ic_home_black_24dp"-->
             <TextView
+                android:id="@+id/nameprofile"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RushabhKumar"
+                android:text=""
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
@@ -61,9 +62,10 @@
                         android:textSize="20sp"
                         />
                     <TextView
+                        android:id="@+id/balanceprofile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="125"
+                        android:text=""
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -144,6 +146,7 @@
                 android:tint="#5fb0c9"
                 android:src="@drawable/ic_email_black_24dp"/>
             <TextView
+                android:id="@+id/emailprofile"
                 android:textStyle="bold"
                 android:textColor="#5fb0c9"
                 android:layout_gravity="center_vertical"
@@ -151,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:tint="@color/skyblue"
-                android:text="rushabh123453@gmail.com"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -165,13 +168,14 @@
                 android:tint="#5fb0c9"
                 android:src="@drawable/ic_phone_android_black_24dp"/>
             <TextView
+                android:id="@+id/phoneprofile"
                 android:textStyle="bold"
                 android:textColor="#5fb0c9"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="+266 225 225"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -185,13 +189,14 @@
                 android:tint="#5fb0c9"
                 android:src="@drawable/ic_group_add_black_24dp"/>
             <TextView
+                android:id="@+id/adharprofile"
                 android:textStyle="bold"
                 android:textColor="#5fb0c9"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="Refer this app"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
