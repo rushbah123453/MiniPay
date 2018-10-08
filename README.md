@@ -20,13 +20,21 @@ Future Scope :
 
 To make service tokens that will ensure security and use assymetric cipher for encrypting data.
 
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/splash.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/home.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/login.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/otp.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/qr.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/transact.jpeg" width = "200">
-<img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/passbook.jpeg" width = "200">
+<table>
+  <tr>
+    <td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/splash.jpeg" width = "200"> </td>
+    <td> <img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/home.jpeg" width = "200"></td>
+    <td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/login.jpeg" width = "200"></td>
+    <td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/otp.jpeg" width = "200"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/qr.jpeg" width = "200"></td>
+<td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/transact.jpeg" width = "200"></td>
+<td><img src="https://github.com/rushbah123453/MiniPay/blob/master/screenshots/passbook.jpeg" width = "200"></td>
+
+
+  </tr>
+</table>
 
 
 
