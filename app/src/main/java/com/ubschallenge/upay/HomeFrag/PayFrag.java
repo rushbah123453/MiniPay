@@ -105,7 +105,7 @@ public class PayFrag extends Fragment implements AsyncResponse,View.OnClickListe
                     Toast.makeText(getContext(),temp_amt,Toast.LENGTH_SHORT).show();
                     BckgroundTask bckgroundTask1=new BckgroundTask(getContext());
                     bckgroundTask1.output=this;
-                    bckgroundTask1.execute("payMoney",phonenumber,payRecipient.getText().toString(),amt.getText().toString());
+                    bckgroundTask1.execute("payMoney",phonenumber,"+91"+payRecipient.getText().toString(),amt.getText().toString());
                     this.amt_send = temp_amt;
                     this.recip_send = payRecipient.getText().toString();
 

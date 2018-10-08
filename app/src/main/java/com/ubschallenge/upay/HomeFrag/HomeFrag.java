@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,7 +100,7 @@ TextView balance,addmoney,passbook;
             public void onClick(View v) {
 
                 String phoneNumber = "9284191937";
-                String smsBody = "Enter phone number: "+"\n"+"Enter Amount:";
+                String smsBody = "";
                 //String smsBody = "1234,4321,10";
 
             // Add the phone number in the data
@@ -185,6 +186,7 @@ TextView balance,addmoney,passbook;
                 try {
                     //converting the data to json
                     JSONObject obj = new JSONObject(result.getContents());
+                    Log.i("CHECK>>>>>>",obj.toString());
                     //setting values to textviews
                     String result_final = "Result is " + obj.getString("phone") + " " + obj.getString("emailid");
                     Toast.makeText(getContext(), result_final, Toast.LENGTH_LONG).show();

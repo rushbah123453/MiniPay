@@ -83,7 +83,7 @@ public class Passbook extends AppCompatActivity implements AsyncResponse {
             bckgroundTask.execute("getBalance",phonenumber);
             BckgroundTask bckgroundTask1=new BckgroundTask(Passbook.this);
            bckgroundTask1.output=Passbook.this;
-        bckgroundTask1.execute("getpassbook", phone_number);
+        bckgroundTask1.execute("getpassbook", phonenumber);
         /*proceed_add =(Button) findViewById(R.id.proceed_add2);
             proceed_add.setOnClickListener(new View.OnClickListener() {
                 @Override
