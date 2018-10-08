@@ -20,7 +20,7 @@ Future Scope :
 
 To make service tokens that will ensure security and use assymetric cipher for encrypting data.
 
-![Home](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/home.jpeg |height=200|width = 200)
+![Home](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/home.jpeg width = "200")
 ![Login](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/login.jpeg)
 ![OTP](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/otp.jpeg)
 ![Passbook](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/passbook.jpeg)
