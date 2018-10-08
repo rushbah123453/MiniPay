@@ -19,3 +19,13 @@ AWS Cognito --send otp to user and authenticate (cognito handles authentication 
 Future Scope :
 
 To make service tokens that will ensure security and use assymetric cipher for encrypting data.
+
+![Home](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/home.jpeg)
+![Login](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/login.jpeg)
+![OTP](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/otp.jpeg)
+![Passbook](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/passbook.jpeg)
+![Profile](https://github.com/rushbah123453/MiniPay/edit/master/README.md)
+![QR](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/qr.jpeg)
+![Transact](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/transact.jpeg)
+![Splash](https://github.com/rushbah123453/MiniPay/blob/master/screenshots/splash.jpeg)
+
